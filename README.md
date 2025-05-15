@@ -1,4 +1,4 @@
-This project is currently under development for the education. Some features in this mini project are not yet fully functional or completed—specifically.However, other parts of the business logic have been prepared to illustrate the technical approach and microservices requirements.
+This project is currently under development for the education. The business logic have been prepared to illustrate the technical approach and microservices requirements.
 
 This mini project represents part of a bank transaction system structure, consisting of 3 modules. Eventually, a financial report will be generated based on these modules. The system is inspired by work I've done on current company project and has been modified to comply with the company's requirements. The next step, once the 3 modules are completed, will be to generate daily bank transaction reports, where each day's transactions will be calculated based on the Bank Transaction Beginning Balance for each registered bank account. There will also be a feature to bulk upload bank transaction data via Excel (reporting and upload modules are not yet included here).
 
