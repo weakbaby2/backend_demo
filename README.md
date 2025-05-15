@@ -14,6 +14,8 @@ Main Features
 
 -Docker containerization
 
+-FeignClient-> used for communicate with other API from other project by access the link url of API
+
 Technologies Used
 
 -Java 17 (to align with the current application environment)
