@@ -29,8 +29,8 @@ import com.example.demo.project.custom.repository.BankAccountRepository;
 import com.example.demo.project.custom.repository.BankTransactionBeginningBalanceRepository;
 import com.example.demo.project.dto.BankTransactionBeginningBalanceRequest;
 import com.example.demo.project.dto.BankTransactionBeginningBalanceResponse;
-import com.example.demo.project.execption.AlreadyExistsException;
-import com.example.demo.project.execption.ResourceNotFoundException;
+import com.example.demo.project.exception.AlreadyExistsException;
+import com.example.demo.project.exception.ResourceNotFoundException;
 import com.example.demo.project.utils.PartialList;
 import com.example.demo.project.utils.PartialListUtil;
 

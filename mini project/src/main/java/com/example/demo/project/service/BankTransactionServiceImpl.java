@@ -32,8 +32,8 @@ import com.example.demo.project.custom.repository.BankAccountRepository;
 import com.example.demo.project.custom.repository.BankTransactionRepository;
 import com.example.demo.project.dto.BankTransactionRequest;
 import com.example.demo.project.dto.BankTransactionResponse;
-import com.example.demo.project.execption.AlreadyExistsException;
-import com.example.demo.project.execption.ResourceNotFoundException;
+import com.example.demo.project.exception.AlreadyExistsException;
+import com.example.demo.project.exception.ResourceNotFoundException;
 import com.example.demo.project.utils.PartialList;
 import com.example.demo.project.utils.PartialListUtil;
 
@@ -64,7 +64,7 @@ public class BankTransactionServiceImpl implements BankTransactionService {
 		if(Objects.nonNull(request.getBankTransactionId()) && request.getBankTransactionId()>0L) {
 			if(request.getAmount().equals(BigDecimal.ZERO)) {
 				String message = messageSource.getMessage("amount.zero", null, LocaleContextHolder.getLocale());
-				throw new AlreadyExistsException(message);
+				throw new ResourceNotFoundException(message);
 			}
 			
 			BeanUtils.copyProperties(request,bankTransaction);
@@ -74,7 +74,7 @@ public class BankTransactionServiceImpl implements BankTransactionService {
 		}else {
 			if(request.getAmount().equals(BigDecimal.ZERO)) {
 				String message = messageSource.getMessage("amount.zero", null, LocaleContextHolder.getLocale());
-				throw new AlreadyExistsException(message);
+				throw new ResourceNotFoundException(message);
 			}
 			
 			request.setBankTransactionId(0L);
@@ -116,7 +116,7 @@ public class BankTransactionServiceImpl implements BankTransactionService {
         if (Objects.nonNull(bankTransactionEndDate) && Objects.nonNull(bankTransactionStartDate)) {
 			if(bankTransactionStartDate.after(bankTransactionEndDate)){
 				String message = messageSource.getMessage("startBankTransactionDate.after", null, LocaleContextHolder.getLocale());
-				throw new AlreadyExistsException(message);
+				throw new BadRequestException(message);
 			}
         }
         
@@ -124,7 +124,7 @@ public class BankTransactionServiceImpl implements BankTransactionService {
 			if(Objects.isNull(amountEnd)) {
 				Object[] param = new Object[] {messageSource.getMessage("label.amountEnd", null, LocaleContextHolder.getLocale())};
 				String message = messageSource.getMessage("not.blank", param, LocaleContextHolder.getLocale());
-				throw new AlreadyExistsException(message);
+				throw new BadRequestException(message);
 			}
 		}
 		
@@ -132,7 +132,7 @@ public class BankTransactionServiceImpl implements BankTransactionService {
 			if(Objects.isNull(amountStart)) {
 				Object[] param = new Object[] {messageSource.getMessage("label.amountStart", null, LocaleContextHolder.getLocale())};
 				String message = messageSource.getMessage("not.blank", param, LocaleContextHolder.getLocale());
-				throw new AlreadyExistsException(message);
+				throw new BadRequestException(message);
 			}
 		}
 		

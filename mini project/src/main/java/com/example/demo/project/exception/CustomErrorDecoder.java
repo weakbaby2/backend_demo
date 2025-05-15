@@ -1,4 +1,4 @@
-package com.example.demo.project.execption;
+package com.example.demo.project.exception;
 
 import feign.Response;
 import feign.codec.ErrorDecoder;
