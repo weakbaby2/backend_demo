@@ -1,27 +1,20 @@
-Projek ini dalam development untuk keperluan kebutuhan teknikal test/edukasi. Beberapa fitur pada mini project ini belum sepenuhnya berjalan atau belum selesai dikembangkan khusus nya bagian belum terbaca nya driver postgres ketika dijalankan
-karena adanya keterbatasan waktu dan kesibukan di pekerjaan utama saat proses pembuatan. Namun sebagian lain dari segi teknis dalam bisnis sudah disiapkan untuk menggambarkan pendekatan dan kebutuhan microservices.
+This project is currently under development for the education. Some features in this mini project are not yet fully functional or completed—specifically.However, other parts of the business logic have been prepared to illustrate the technical approach and microservices requirements.
 
-Mini Projek ini mengenai sebagian dari struktur sistem transaksi bank yang terdiri dari 3 modul yang nanti nya akan dibuat laporan keuangan yang diambil dari sebagian kerjaan yang saya kerjakan di projek perusahaan saya
-dan dilakuan modifikasi sesuai dengan ketentuan dari perusahaan. Tahap Selanjut nya ketika 3 modul ini selesai diinput akan dibuat laporan transaksi bank dimana tiap hari nya akan 
-dihitung berdasarkan modul Bank Transaction Beginning Balance tiap akun bank yang terdaftar dan ada fitur untuk penginputan data transaksi bank dalam jumlah banyak melalui upload excel (modul report dan upload belum termasuk dalam sini).
+This mini project represents part of a bank transaction system structure, consisting of 3 modules. Eventually, a financial report will be generated based on these modules. The system is inspired by work I've done on current company project and has been modified to comply with the company's requirements. The next step, once the 3 modules are completed, will be to generate daily bank transaction reports, where each day's transactions will be calculated based on the Bank Transaction Beginning Balance for each registered bank account. There will also be a feature to bulk upload bank transaction data via Excel (reporting and upload modules are not yet included here).
 
-Fitur Utama
-- CRUD transaksi setiap modul awal (beginning balance) bank, Bank Transaction dan Bank Transactio9n Beginning Balance
+Main Features
+-CRUD operations for each initial module: Beginning Balance, Bank Transaction, and Bank Transaction Beginning Balance
+-Validation using jakarta.validation and Lombok
+-Native SQL queries using @SubSelect, with data filtering using predicates
+-Implementation of Spring IoC and Java Stream API
+-Docker containerization
 
-- Validasi menggunakan jakarta.validation dan Lombok 
-
-- Query (native SQL) menggunakan @SubSelect dan filter untuk data yang dipilih menggunakan predicates
-
-- Penerapan Spring IoC dan Java Stream
-
-- Containerized dengan Docker
-
-Teknologi yang Digunakan
- - Java 17 (menyesuaikan aplikasi yang dipakai sekarang)
- - Spring Boot
- - Spring Data JPA
- - PostgreSQL
- - Lombok
- - Swagger/OpenAPI (dokumentasi API)
- - Docker (untuk kontainerisasi)
- - Maven
+Technologies Used
+-Java 17 (to align with the current application environment)
+-Spring Boot
+-Spring Data JPA
+-PostgreSQL
+-Lombok
+-Swagger/OpenAPI (for API documentation)
+-Docker (for containerization)
+-Maven
