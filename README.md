@@ -1,35 +1,9 @@
-This project is currently under development for the education. The business logic have been prepared to illustrate the technical approach and microservices requirements.
+Untuk Pertanyaan Tambahan:
 
-This mini project represents part of a bank transaction system structure, consisting of 3 modules. Eventually, a financial report will be generated based on these modules. The system is inspired by work I've done on current company project and this project currently running in SIT/UAT/PROD servers and has been modified to comply with the company's requirements. The next step, once the 3 modules are completed, will be to generate daily bank transaction reports, where each day's transactions will be calculated based on the Bank Transaction Beginning Balance for each registered bank account. There will also be a feature to bulk upload bank transaction data via Excel (reporting and upload modules are not yet included here).
+1. Untuk Debit credit bersifat atomic dapet menggunakan anotation di SpringBoot yaitu @Modififying dan @Query di repository yang berperan untuk memastikan saldo yang terakhir
 
-Main Features
+2. potensi race condition yang terjadi adalah adanya suatu transaksi yang berjumlah lebih dari 1 secara bersamaan. Sebagai contoh adalah ketika terdapat lebih dari 1 user yang mengakses pengecekan saldo di saat bersamaan dan melakukan transaksi saat bersamaan. Cara mengatasi nya :
+-bisa menggunakan atomic query dengan anotasi di atas yaitu mengupdate dan perhitungan saldo langsung di DB dilakukan di awal ketika user mengakses pengecekan saldo.
+- menambah kolom version di tabel user sehingga dapat menghindari data yang sama dapat diupdate secara bersamaan ketika version sudah berubah.
 
--CRUD operations for each initial module: Beginning Balance, Bank Transaction, and Bank Transaction Beginning Balance
-
--Validation using jakarta.validation and Lombok
-
--Native SQL queries using @SubSelect, with data filtering using predicates
-
--Implementation of Spring IoC and Java Stream API
-
--Docker containerization
-
--FeignClient-> used for communicate with other API from other project by access the link url of API
-
-Technologies Used
-
--Java 17 (to align with the current application environment)
-
--Spring Boot
-
--Spring Data JPA
-
--PostgreSQL
-
--Lombok
-
--Swagger/OpenAPI (for API documentation)
-
--Docker (for containerization)
-
--Maven
+3. Jika ada kegagalan/error ketika melakukan transaksi dalam case ini saya menggunakan anotation @Transactional dalam SpringBoot yang berfungsi sebagai rollback secara keseluruhan ketika di tengah proses terdapat suatu kegagalan/exception.
