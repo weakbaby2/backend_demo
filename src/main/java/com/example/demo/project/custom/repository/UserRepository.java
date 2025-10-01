@@ -22,7 +22,7 @@ public interface UserRepository extends JpaRepository<User, Long> , JpaSpecifica
 
 	@Modifying
 	@Transactional
-	@Query("update users set balance = balance - :amount WHERE id = :userId and balance >= :amount")
+	@Query("update users set balance = balance - :amount where id = :userId and balance >= :amount")
 	int debit(Long userId, BigDecimal amount);
 	
 }
